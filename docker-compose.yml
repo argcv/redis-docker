@@ -1,0 +1,13 @@
+version: '3'
+
+services:
+  redis:
+    image: redis:4
+    restart: always
+    ports:
+      - 6380:6380
+    volumes:
+      - ./config/redis-6380-ram-only.conf:/etc/redis.conf
+    environment:
+      - CONTAINER=docker
+    command: [ "redis-server", "/etc/redis.conf"]
